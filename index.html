@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* height: 100vh; */
+            display: flex;
+            width: 70vw;
+            justify-content: center;
+            margin: auto;
+            align-items: center;
+            border-color: rebeccapurple;
+
+        }
+        form{
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            width: 100vw;         
+        }
+        label {
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: underline;
+            /* font-size: 20px; */
+        }
+        input{
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 13px;
+            border-radius: 8px ;
+            outline: solid blue;
+            border: transparent;
+        }
+        .container button{
+            margin: 20px 0px;
+            padding: 13px;
+            border-radius: 8px ;
+            font-size: 18px;
+            transition: all 1s;
+
+
+        }
+        button:hover{
+            color:wheat;
+           
+            background-color:  blue;
+            /* color: rgb(16, 49, 141); */
+
+        }
+        h1{
+            font-size: 36px;
+            text-align: center;
+
+
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        
+        <form onsubmit="return false">
+            <h1>Check your Result</h1>
+            <label for="totalMath">Total Marks in Math</label>
+            <input type="number" value="100"  id="totalMath">
+            
+            <label for="obtainedMath">Obtained Marks in Math</label>
+            <input type="number" id="obtainedMath">
+            
+            <label for="totalPhysics">Total Marks of Physics</label>
+            <input type="number" value="100" id="totalPhysics">
+            
+            <label for="obtainedPhysics">Obtained Marks in Physics</label>
+            <input type="number"  id="obtainedPhysics">
+            
+            <label for="totalChemistry">Total Marks in Chemistry</label>
+            <input type="number" value="100" id="totalChemistry">
+            
+            <label for="obtainedChemistry">Obtained Marks in Chemistry</label>
+            <input type="number"  id="obtainedChemistry">
+            
+            <button onclick="perSubmit()">Check your Result</button>
+        </form>
+    </div>
+    <script>
+     
+
+
+
+
+
+        
+        function perSubmit(){
+            let fixedMath = document.querySelector("#totalMath").value;
+            let fixedPhysics = document.querySelector("#totalPhysics").value;
+            let fixedChemistry = document.querySelector("#totalChemistry").value;
+
+            let smallMath = document.querySelector("#obtainedMath").value;
+            let smallPhysics = document.querySelector("#obtainedPhysics").value;
+            let smallChemistry = document.querySelector("#obtainedChemistry").value;
+
+
+             if (( ( ( Number(smallMath) + Number(smallPhysics) + Number(smallChemistry) ) / ( Number(fixedMath) + Number(fixedPhysics) + Number(fixedChemistry) ) )*100 ) >= 80)  {
+                alert("you are passed" + " A+ Grade");
+            }
+             else if (( ( ( Number(smallMath) + Number(smallPhysics) + Number(smallChemistry) ) / ( Number(fixedMath) + Number(fixedPhysics) + Number(fixedChemistry) ) )*100 ) >= 70 )  {
+                alert("you are passed" + " A Grade");
+            }
+             else if (( ( ( Number(smallMath) + Number(smallPhysics) + Number(smallChemistry) ) / ( Number(fixedMath) + Number(fixedPhysics) + Number(fixedChemistry) ) )*100 ) >=60 ) {
+                alert("you are passed" + " B Grade");
+        }
+        else if (( ( ( Number(smallMath) + Number(smallPhysics) + Number(smallChemistry) ) / ( Number(fixedMath) + Number(fixedPhysics) + Number(fixedChemistry) ) )*100 ) >=50 ) {
+            alert("you are passed" + " C Grade");
+        }
+        else if (( ( ( Number(smallMath) + Number(smallPhysics) + Number(smallChemistry) ) / ( Number(fixedMath) + Number(fixedPhysics) + Number(fixedChemistry) ) )*100 ) >= 40 ) {
+            alert("you are passed" + " D Grade");
+        }
+        else if (( ( ( Number(smallMath) + Number(smallPhysics) + Number(smallChemistry) ) / ( Number(fixedMath) + Number(fixedPhysics) + Number(fixedChemistry) ) )*100 ) >= 33 ){
+            alert("you are Passed" + " E Grade");
+
+        }
+   
+
+
+
+
+        
+             else {
+                alert("you are failed" );
+            }
+            // alert ( ( ( Number(smallMath) + Number(smallPhysics) + Number(smallChemistry) ) / ( Number(fixedMath) + Number(fixedPhysics) + Number(fixedChemistry) ) )*100 );
+            
+        }
+        
+    </script>
+</body>
+</html>
